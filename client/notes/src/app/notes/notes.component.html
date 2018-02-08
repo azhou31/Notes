@@ -1,0 +1,14 @@
+<h1>Anonymous Notes</h1>
+<div id="addNote">
+Notes: <form (submit)="onSubmit()">
+      <input type="text" name="content" [(ngModel)]="newNote.content" #note="ngModel">
+      <input type="submit" value="Add Note"></form>
+</div>
+<h2>Search Notes:</h2>
+<input type="text" name="searchString" [(ngModel)]="searchString"
+(keyup)="searchNotes()"
+>
+<br><br>
+<fieldset *ngFor="let note of shownNotes">
+  <h2>{{note.content}}</h2>
+</fieldset>
